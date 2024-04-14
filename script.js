@@ -41,14 +41,14 @@ async function getsongs(folder) {
     for (const song of songs) {
         songUL.innerHTML = songUL.innerHTML + `
         <li class="items-center">
-                            <img class="invert" src="/assets/icons/music.svg" alt="">
+                            <img class="invert" src=" icons/music.svg" alt="">
                             <div class="info">
                                 <div class="named" >${decodeURI(song)}</div>
                                 <div class="font">--Mr. Zain</div>
                             </div>
                             <div class="playnow flex items-center">
                                 <span class="green">PlayNow</span>
-                                <img class="invert svg" src="/assets/icons/play.svg" alt="">
+                                <img class="invert svg" src=" icons/play.svg" alt="">
                             </div>
                         </li>`;
 
@@ -69,7 +69,7 @@ const playMusic = (track, pause = false) => {
     currentSong.src = `/${currFolder}/` + track;
     if (!pause) {
         currentSong.play();
-        play.src = "/assets/icons/pause.svg";
+        play.src = " icons/pause.svg";
         
     }
     
@@ -167,7 +167,7 @@ async function displayAlbums() {
         e.addEventListener("click", async item => {
             songs = await getsongs(`songs/${item.currentTarget.dataset.folder}`)
             playMusic(songs[0])
-            // play.src = "/assets/icons/play.svg";
+            // play.src = " icons/play.svg";
 
         })
     })
@@ -187,12 +187,12 @@ async function main() {
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play();
-            play.src = "/assets/icons/pause.svg"
+            play.src = " icons/pause.svg"
         }
 
         else {
             currentSong.pause();
-            play.src = "/assets/icons/play.svg"
+            play.src = " icons/play.svg"
         }
     })
 
@@ -215,7 +215,7 @@ async function main() {
         document.querySelector(".circle").style.width = ((currentSong.currentTime / currentSong.duration) * 100 + 1) + "%";
 
         if (ctime === duration) {
-            play.src = "/assets/icons/play.svg"
+            play.src = " icons/play.svg"
         }
     })
 
@@ -230,7 +230,7 @@ async function main() {
     document.querySelector(".hamburger").addEventListener("click", () => {
         document.querySelector(".left").style.left = "0";
         currentSong.pause();
-        play.src = "/assets/icons/play.svg"
+        play.src = " icons/play.svg"
     })
 
     // add event listener to cross 
@@ -273,13 +273,13 @@ async function main() {
 
         if (e.target.value == 0) {
 
-            volumeIcon.src = '/assets/icons/mute.svg';
+            volumeIcon.src = ' icons/mute.svg';
         } else if (e.target.value < 51) {
 
-            volumeIcon.src = '/assets/icons/low.svg';
+            volumeIcon.src = ' icons/low.svg';
         }
         else {
-            volumeIcon.src = '/assets/icons/volume.svg';
+            volumeIcon.src = ' icons/volume.svg';
         }
 
         percent.innerHTML = e.target.value + "%";
@@ -294,24 +294,24 @@ async function main() {
                 currentSong.volume = 1;
                 document.querySelector(".volrange").value = 100;
                 percent.innerHTML = document.querySelector(".volrange").value + "%";
-                document.querySelector('.volicon').src = '/assets/icons/volume.svg';
+                document.querySelector('.volicon').src = ' icons/volume.svg';
             } else {
                 currentSong.volume = 0;
                 document.querySelector(".volrange").value = 0;
                 percent.innerHTML = document.querySelector(".volrange").value + "%";
-                document.querySelector('.volicon').src = '/assets/icons/mute.svg';
+                document.querySelector('.volicon').src = ' icons/mute.svg';
             }
         } else if (e.keyCode === 76) {
             currentSong.volume = 0.5;
             document.querySelector(".volrange").value = 50;
             percent.innerHTML = document.querySelector(".volrange").value + "%";
-            document.querySelector('.volicon').src = '/assets/icons/low.svg';
+            document.querySelector('.volicon').src = ' icons/low.svg';
         }
         else if (e.keyCode === 72) {
             currentSong.volume = 1;
             document.querySelector(".volrange").value = 100;
             percent.innerHTML = document.querySelector(".volrange").value + "%";
-            document.querySelector('.volicon').src = '/assets/icons/volume.svg';
+            document.querySelector('.volicon').src = ' icons/volume.svg';
         }
     });
 
@@ -322,12 +322,12 @@ async function main() {
             currentSong.volume = 1;
             document.querySelector(".volrange").value = 100;
             percent.innerHTML = document.querySelector(".volrange").value + "%";
-            volicon.src = '/assets/icons/volume.svg';
+            volicon.src = ' icons/volume.svg';
         } else {
             currentSong.volume = 0;
             document.querySelector(".volrange").value = 0;
             percent.innerHTML = document.querySelector(".volrange").value + "%";
-            volicon.src = '/assets/icons/mute.svg';
+            volicon.src = ' icons/mute.svg';
         }
     });
 
